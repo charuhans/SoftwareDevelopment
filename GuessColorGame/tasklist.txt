@@ -1,0 +1,24 @@
+Tasks
+1. Check if game is over - done
+2. user guess matches system colors, all the positions are exactly the same - done
+3. user guess matches system color , none of the colors are at the exact position - done
+4. user guess does not match system color at all - done
+5. user guess matches system color at some positions but not all. all the user guesses are within the system color sequence - done
+6. at least one user guess matches but not all, at exact position - done
+7. at least one user guess matches but not all, no position matches - done
+8. at least one user guess matches but not all, some positions match but not all - done
+9. user guesses color before system color is generated - done
+10. user guesses less than six color - done
+11. System generates all duplicates and user guesses some but not all - done
+12. System generates all duplicates and user guesses all of them correctly - done
+13. System generates more than one duplicate but not all, atleast one matches but not all and some positions match -done
+14. System generates more than one duplicate but not all, atleast one matches but not all and all positions match -done
+15. System generates more than one duplicate but not all, all colors match and some positions match -done
+16. System generates more than one duplicate but not all, all colors match and all positions match -done
+17. user guesses, check if the guess is exact match, if so game is won - done
+18. user guesses, check if its an exact match after few tries, if not then game not over yet - done
+19. user guesses 20 times and still its not an exact match, game over and lost - done
+20. user guesses 20 times, and make a right guess in 21 try - done
+21. to check if system color is set for beginner mode - done
+22. to check if system color is set for advance level - done
+23. to check if system color is set for intermediate level - done

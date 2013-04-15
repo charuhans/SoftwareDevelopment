@@ -1,0 +1,43 @@
+
+
+Using TDD approach create a diagraming application. Your application will
+have a GUI, but keep the logic test driven code separated from the GUI.
+
+1. The application will present to the user a number of shapes like Circle,
+Square, Rectangle, etc. 
+
+2. The user can drag and drop shapes on to a diagram.
+
+3. User can move a shape on a diagram.
+
+4. User can delete a shape from the diagram after selecting it.
+
+5. User can select a number of shapes and group them.
+
+6. If a group is moved, the shapes in it move.
+
+7. If a group is deleted, everything in it is deleted.
+
+8. A group may contain other groups.
+
+9. A user may ungroup a group.
+
+10. Shapes have properties (like center and radius for a circle).
+
+11. User can save a diagram and can open saved diagrams.
+
+
+
+
+Program works (different shapes can be drawn) [10]:
+All tests pass (with reasonable number of tests) [20]:
+Code coverage [5]: 
+Move shapes [5]:
+Group shapes [5]: Make it intuitive, the user has no clue how to group. Normally we click at crop over multiple objects. If it requires holding keys,
+then you have to say that.
+Move a group [5]: 
+Save and load diagram [10]:
+Design quality [10]:
+Code quality [5]: 
+Able to add a new shape with no change to existing code [20]:
+Able to add a new shape with a string property [5]: 

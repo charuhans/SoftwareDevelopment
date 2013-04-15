@@ -1,0 +1,28 @@
+
+Views:
+
+We would say highlights of this assignment were "evolving via TDD", "productivity via PAIRING and "correctively via REVIEWING".
+
+evolving via TDD:
+   For this assignment we followed Test Driven Development. All the code was developed keeping in mind Red, Green Refactor principle. We wrote a failing test first, then wrote a minimal code to fix test. And then, went back to refactor the code. Tests played a key role in refactoring our code. We made sure our tests were small and isolated. We started with simple test and then moved on to more complex test. Our code evolved itself as we moved towards more complex test. 
+   
+   While refactoring our code we kept in mind Single Responsibility and Don’t Repeat Yourself Principles. We also made sure our code speaks for itself. This was the first time we did not write a single line of comment. We carefully choose our methods name. Initially we had a one giant method for color comparison, and saw the violation of DRY principle. We refactored our method into modules, and made sure each module did one thing and one thing well.
+
+productivity via PAIRING:
+   We felt, ideas flow very well when working in pair. At times, we felt explaining problem to your pair, solved the problem. Exchanging ideas between us helped us to widen our perspective.
+   
+correctively via REVIEWING:
+	This is the first class, and we believe only class which did guide us every day towards our thoughts. Your reviews helped us to refactor our code, and look more deeply and attentively into logic.
+
+
+
+Tests detect if intermediate and advanced never generate duplication [5]:
+Code coverage [20]: 
+
+Code and design quality [15]: 
+actionPerformed is one long method, we know long methods are evil.
+Remove dead code, don't leave them as comments.
+
+Design comparison [5]: 
+Tests on your code pass [10]:
+Removed Black and Silver from target colors.

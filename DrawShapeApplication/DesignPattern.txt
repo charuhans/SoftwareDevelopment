@@ -1,0 +1,99 @@
+Homework 3: Due 11:59PM November 21st
+
+In assignment 3:
+
+1. What design principles did you use in your code? 
+Explain the benefits realized from them specifically in this case.
+
+	a) Single Responsibility Principle: We made sure that every class does one thing and one thing only. Classes related to Shapes, Diagram, Draw and GUI had one
+	   responsibility based on the tasks related to them.
+	   
+	b) YAGNI: We employed TDD approach, to write code. All the code was developed keeping in mind Red, Green Refactor principle. We wrote a failing test first, then
+	   wrote a minimal code to fix test. And then, went back to refactor the code.
+	
+	c) DIP: Instead of Diagram depending on individual shapes, we made Diagram depends on Shape Interface employing DIP.
+	
+	d) DRY: While refactoring our code we kept in mind not to waste our effort.
+	
+	e) OCP: New shapes can be added with out modifying the existing code. In addition, Shapes were dynamically loaded via Reflection, which eliminated modification in
+	   code. 
+	
+	f) Highly Cohesive and Loosely Coupled: Each class had their own responsibility, and there was minimal dependency. 
+
+	
+
+2. What design patterns did you use in your code?
+Explain the benefits realized from them specifically in this case.
+
+	a) Abstract Factory: 
+		Product: 		 	IShape
+		ConcreteProduct: 	Circle, Rectangle, Square, Group.
+		Factory:  			ShapePropertyFactory
+		Client: Diagram
+		
+		Used for creating objects without knowing the object type. Objects were created using Java reflection, name of the class is sent to ShapePropertyFactory which sends back the object of the class. Client gets the object without the knowledge of concrete implementation of object creation.
+		
+		Product: 			IDrawShape
+		ConcreteProduct: 	DrawCircle, DrawRectangle, DrawSquare, DrawGroup.
+		Factory:  			drawShape(IShape shape, Graphics g) in Canvas class.
+		Client: GUI
+		
+		We again used java reflection for the creation of objects for drawing shapes on GUI. GUI is not aware of how object is created or what type it is. GUI calls the method drawShape() and sends object of type IShape to it. Within the method we retrieve the class of the object and create an instance of an appropriate DrawShape class(DrawSquare etc.). All this is achieved via java reflection. Once we get the object of type DrawShape we call draw method on it, appropriate shape is drawn on the panel with no knowledge of concrete implementation of IDrawShape object.
+		
+		Advantage: New shapes can be added without changing a single line of code in the GUI and Diagram. It helps our code to abide by OCP.
+		
+	b) Composite Pattern: 
+		Component:  IShape, and IDrawShapes
+		Leaf:  		Rectangle, DrawRectangle etc.
+		Composite:	Group, DrawGroup
+		Client:   	Diagram, and GUI
+		
+		We need to manipulate a hierarchical collection (tree) of primitive (leaf) and composite objects (node). Composite pattern lets client treat composite and primitive objects in same way.  
+		
+		We defined an interface IShape (component) and IDrawShapes (component). In case of IDrawShapes composite pattern is utilized uniformly for primitives, and composite.
+		
+		In case of Shape interface, we deviated away from uniformity of primitive and composite object. Methods like addShapeToGroup and unGroup are defined only for Group (composite) class. Unfortunately, the desire to treat primitive and composite uniformly requires that these methods be moved to the Shape (component) class. But methods like addShape and unGroup are not relevant for primitives. Adding them to Shape will violate that class should only define operations that are meaningful to its subclasses.
+		
+		Defining methods in the composite class, that are not relevant to primitive gives us safety. Due, to this we deviate away from design for transparency of composite pattern. So, this is the trade-off between "design for safety" and "design for uniformity". In our design we chose safety over uniformity.
+
+	c) Bridge Pattern: 
+		Decouple abstraction from its implementation so that the two can vary independently. In our scenario abstraction is IShape Class and implementor is IDrawShape Class. Bridge pattern adds two layer of abstraction and they are not bounded to each other and independently extensible by subclassing. 
+		It helps us to design for separation of concerns. The goal is to decouple the IShape from dependency on Graphics or any other library. Changes in the IShape class should not have any impact on client. This can be achieved by decoupling IShape from Draw.
+		
+	d) Strategy Design Pattern:
+		This design pattern is used to capture abstraction in an interface, and bury concrete implementation details in derived classes.
+		
+		Context: Diagram, and GUI
+		Strategy: IShape, and IDrawShape
+		ConcreteStrategy: Rectangle, DrawRectangle etc.
+		
+		Advantage: Makes our code extensible and maintainable. Strategy pattern offers an alternative to nested if-else for selecting desired behavior. Strategy pattern  helps us to sustain OCP.
+		
+		
+		
+3. What are some of the things that caught your attention?
+
+	a) TDD helped us to realize various design principles. Some of them are, SRP, High Cohesion, Loose Coupling and YAGNI.
+	   We tried our best to create code by writing tests first and then the code but we still had code with less than 100% code coverage or missed branches. We realized here that knowing how to do things is not as important as practicing it over and over again to achieve perfection. This time around we were more test driven than earlier assignments.
+	   
+	b) OCP plays an important role in realizing Extensibility.
+	   Honestly, we have never written extensible code. If else was a big part of any code that we have designed. Lets rephrase it, any code that we wrote and never put real thought on design. In this assignment we realized how design affects the extensibility of code. Better the design, easier it is to add new features.
+	   
+	c) No comments to explain the code.
+	   Fall 2012 is the first time we have written code without comments. Never realized that it was possible to understand code without comments in it. But we realised that if code is better designed then comments are like YAGNI(You Don't need It).
+	   
+	d) Pair programming
+	   It is important to code in pair. No two minds think alike, two people look at the same problem but come up with different solutions altogether. Only issue was to come up with one final solution, we always ended up having heated arguments but it was helpful. These little arguments and discussions helped us to come up with better quality code
+	   
+	e) Frequent reviews
+	   Working on assignment or in that case any problem from day one is a very good idea. Its better to work from day one and evolve the code slowly over the period of week or two. Frequent reviews were a major help, reviews pushed us in thinking in right direction. We have never had an opportunity to have our work reviewed and daily basis in any course, or even at place we work. 
+	   
+	f) Be Yourself: All the design patterns and principles are there to guide us to write better code. But, we should not follow them blindly. Sometimes, it makes
+	   sense  to deviate from them in order to design better. Last but not least, use your skills to guide you to right direction.
+
+Total [10]: 10
+
+Principles [3]:
+Patterns [3]:
+Explained deviations [2]:
+Observations [2]:

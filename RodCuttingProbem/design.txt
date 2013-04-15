@@ -1,0 +1,84 @@
+
+
+A company is in the business of buying rods in wholesale, cutting it, and
+selling the pieces in the retain market. The market fluctuates and the price 
+for different sizes of rods changes by the day. Here's where we come in, the
+company wants our help to know how much maximum money they can make, and how 
+to cut the rods of a given length to get that maximum money.
+
+For example, if the rods of various lengths sell at the following prices on
+a given day:
+
+Inch   price
+1       $1
+2       $1
+3       $2
+4       $3
+5       $4
+6       $5
+7       $5
+8       $9
+9       $9
+10      $10
+
+Cutting a 20inches rod into give pieces of 2 inches each will only get them 
+$10. However, if they cut it into 6 pieces of two 8-inches, and four 1-inches
+will get them $22. There may be other combinations that produce better price.
+The additional challenge is the prices fluctuate each day.
+
+We're asked to write a program, but in a way the algorithm for computing
+the sizes can be changed.
+
+Write a class RodCutter that will take the various lengths and their prices.
+Then write one method on the class, cutRod that takes a length as parameter
+and returns two things - maximum price they company can expect and the
+size of the rods that they should cut the given length to get that price.
+For example, if the input parameter is 2 (and the prices are as above),
+then the output will be $2 and the sizes will be 1, 1 (for 2 pieces).
+
+First write the class RodCutter so it works with a simple algorithm.
+Then (and only after fully completing the above, not before), create another
+version of RodCutter that will use techniques to shorten the
+time to compute the result. The two versions must produce the same result,
+just their computations efficiencies must be different.
+
+After you complete the program, answer the following questions:
+
+1. What design principles did you use in this program. Explain each
+and specify the classes that participated.
+
+	a) Single Responsibility Principle: We made sure that every method in class does one thing and one thing only. Even though we just have one method in both the classes.  Even classes do what they are supposed to do and do it well.
+	
+	Classes : RodCutterSimple and RodCutterEfficient
+	Methods : cutRod method in RodCutterSimple and RodCutterEfficient
+	   
+	b) YAGNI: We wrote a failing test first, then wrote a minimal code to fix test. And then, went back to refactor the code. We followed this while making test classes. We sometimes did violate it, but realized soon we are really not gonna need it. For example, we created an Interface for rod cutter, but realized it we are not really gonna need it. 
+	
+	d) DRY: While refactoring our code we kept in mind not to waste our effort. Since, the test for simple and rod cutter were exactly same, we made sure not to repeat them. Also, in rodCutterSimple and rodCutterEfficient, we made sure not to repeat effort.
+	
+	e) OCP: New algorithms can be added with out modifying the already existing code. 
+
+
+2. What design patterns did you use in this program. Explain each
+and specify the classes that participated.
+
+	a) Factory Method : In our case we used modified version of factory method. We really did not create an iterface or an abstract class, but realised the pattern through inheritence. In our test classes we had RodCutterTest that tested the RodCutterSimple class, we used the same tests to test RodCutterEfficient class. We created a method getRodCutter(int[] price) that returns the instance of class depending upon which test class calls it. This helped us to make our code DRY.
+	
+	b) Strategy Pattern : We have used modified version of strategy pattern in our project. 
+	   
+	   We do not have a common interface or abstract class instead we have a concrete class (RodCutterSimple class) that acts as common class for all supported algorithms.
+	   
+	   In our tests as well we have followed the same intent. We have a common test class (RodCuterTest class) for the family of test classes (RodCutterEfficientTest class).
+	
+	   If we are adding new algorithms, we can reuse these classes (RodCutterSimple and RodCutterTest) for our purpose.
+
+
+
+
+Tests pass [20]:
+Good code coverage [10]:
+Design quality [20]:
+Code quality [20]:
+Efficient version's efficient [10]:
+Principles used [10]:
+Patterns used [10]:
